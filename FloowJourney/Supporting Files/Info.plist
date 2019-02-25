@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please let me have your data</string>
+	<string>FloowJourney requires location services in order to function correctly. Please select &apos;Always Allow&apos; to give the best experience.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please let me have your data</string>
+	<string>FloowJourney requires location services in order to function correctly. Please select &apos;Always Allow&apos; to give the best experience.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
