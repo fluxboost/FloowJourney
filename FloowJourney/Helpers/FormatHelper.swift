@@ -9,6 +9,12 @@
 import UIKit
 
 struct FormatHelper {
+	
+	/**
+	Takes a Date and formats it into a human readable string.
+	
+	- Returns: A string containing the inputted date.
+	*/
 	static func stringFromDate(_ date: Date?) -> String {
 		guard let date = date as Date? else { return "" }
 		let formatter = DateFormatter()
@@ -16,6 +22,11 @@ struct FormatHelper {
 		return formatter.string(from: date)
 	}
 	
+	/**
+	Takes a TimeInterval and formats it into a human readable string of hours, minutes, and seconds.
+	
+	- Returns: A string of HH:mm:ss.
+	*/
 	static func stringFromTimeInterval(timeInterval: TimeInterval) -> String {
 		
 		let time = Int(timeInterval)

@@ -8,6 +8,9 @@
 
 import CoreLocation
 
+/**
+UserLocationManager is a singleton used store location manager defaults and provide convenience functions.
+*/
 class UserLocationManager {
 	
 	static let shared = UserLocationManager()
