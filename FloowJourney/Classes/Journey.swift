@@ -10,20 +10,15 @@ import UIKit
 
 class Journey: NSObject {
 	
-	var distance: Double
 	var duration: Int
 	var start: Date
 	var end: Date
-	var locations: [Location]?
+	var locations: [Location] = []
 	
-	init(distance: Double, duration: Int, start: Date, end: Date, locations: [Location]?) {
-		self.distance = distance
+	init(duration: Int, start: Date, end: Date, locations: [Location]) {
 		self.duration = duration
 		self.start = start
 		self.end = end
-		
-		if locations != nil {
-			self.locations = locations
-		}
+		self.locations = locations
 	}
 }

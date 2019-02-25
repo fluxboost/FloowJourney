@@ -11,7 +11,7 @@ import Foundation
 import CoreLocation
 
 protocol JourneyViewModelDelegate: class {
-	func updateView(updatedViewModel: JourneyViewModel)
+	func didUpdateView(updatedViewModel: JourneyViewModel)
 }
 
 class JourneyViewModel {
@@ -20,13 +20,16 @@ class JourneyViewModel {
 	private var end: Date?
 	private var seconds = 0
 	private var timer: Timer?
-	private var distance = Measurement(value: 0, unit: UnitLength.meters)
 	private var locationList: [CLLocation] = []
 	
+	private var journeyManager = JourneyManager.shared
 	weak var delegate: JourneyViewModelDelegate?
 	
 	init(){}
 	
+	/**
+	Resets all the journey variables and starts updating for a new journey.
+	*/
 	func startJourney() {
 		seconds = 0
 		locationList.removeAll()
@@ -34,15 +37,21 @@ class JourneyViewModel {
 		start = Date()
 	}
 	
+	/**
+	Stops journey tracking variables and saves the journey to the JourneyManager.
+	*/
 	func stopJourney() {
 		timer?.invalidate()
 		end = Date()
 		saveJourney()
 	}
 	
+	/**
+	Format journey data and save to JourneyManager
+	*/
 	private func saveJourney() {
 		
-		let journey = Journey(distance: distance.value, duration: seconds, start: NSDate.distantFuture, end: NSDate.distantPast, locations: nil)
+		let journey = Journey(duration: seconds, start: start!, end: end!, locations: [])
 		var locations: [Location] = []
 		
 		for item in locationList {
@@ -52,26 +61,52 @@ class JourneyViewModel {
 		
 		journey.locations = locations
 		
-		JourneyManager.shared.saveJourney(journey: journey)
+		journeyManager.saveJourney(journey: journey)
 	}
 	
 	func addLocationToList(location: CLLocation) {
 		locationList.append(location)
 	}
 	
+	/**
+	Called every second in order to update the view.
+	*/
 	func eachSecond() {
 		seconds += 1
 		updateView()
 	}
 	
+	/**
+	Sends the updated view model to the view.
+	*/
 	func updateView() {
-		
+		delegate?.didUpdateView(updatedViewModel: self)
 	}
 	
-	func getLocationList() -> [CLLocation] {
+	/**
+	Calculates the duration of the current journey.
+	
+	- Returns: A string containing the total duration of the current journey in HH:mm:ss.
+	*/
+	func getDuration() -> String {
+		let timeintervalSinceStart = Date().timeIntervalSince(start!)
+		return FormatHelper.stringFromTimeInterval(timeInterval: timeintervalSinceStart)
+	}
+	
+	/**
+	Gets the array of locations.
+	
+	- Returns: An array containing all the locations recorded so far on the current journey.
+	*/
+	private func getLocationList() -> [CLLocation] {
 		return locationList
 	}
 	
+	/**
+	Gets the last CLLocation from the array of locations
+	
+	- Returns: A CLLocation object
+	*/
 	func getLastLocationFromList() -> CLLocation? {
 		if !getLocationList().isEmpty {
 			return getLocationList().last

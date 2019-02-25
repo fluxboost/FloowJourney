@@ -16,6 +16,10 @@ class JourneyManager {
 	
 	var journeys = [Journey]()
 	
+	func getJourneys() -> [Journey] {
+		return journeys
+	}
+	
 	func saveJourney(journey: Journey) {
 		journeys.append(journey)
 	}
