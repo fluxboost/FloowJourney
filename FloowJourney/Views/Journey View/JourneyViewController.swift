@@ -136,5 +136,15 @@ extension JourneyViewController: MKMapViewDelegate {
 		renderer.lineWidth = 2
 		return renderer
 	}
+	
+	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+		if annotation.isEqual(mapView.userLocation) {
+			let userLocationAnnotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "userLocation")
+			userLocationAnnotationView.image = UIImage(named: "car")
+			return userLocationAnnotationView
+		}
+		
+		return nil
+	}
 }
 

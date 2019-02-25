@@ -57,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6CC5336A22246C6B0039CA5B /* Request Authorisation View */ = {
+			isa = PBXGroup;
+			children = (
+				6CCE8325221F0BF9000FC053 /* RequestAuthorisationViewController.swift */,
+			);
+			path = "Request Authorisation View";
+			sourceTree = "<group>";
+		};
 		6CCE82F4221DAEE8000FC053 = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +125,7 @@
 		6CCE831F221F0479000FC053 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6CCE8325221F0BF9000FC053 /* RequestAuthorisationViewController.swift */,
+				6CC5336A22246C6B0039CA5B /* Request Authorisation View */,
 				6CCE8330221F2A77000FC053 /* Journey View */,
 				6CCE8331221F2A99000FC053 /* Journey List View */,
 				6CCE833722245C27000FC053 /* View Journey View */,

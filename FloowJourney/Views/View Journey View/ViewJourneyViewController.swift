@@ -11,7 +11,11 @@ import MapKit
 import CoreLocation
 
 /**
-ViewJourneyViewController displays the users previously saved journey. Dependency injection has been used rather than MVVM to keep the view controller concise. This view controller is static and requires the same data everytime and thus is a perfect candidate for dependency injection.
+ViewJourneyViewController displays the users previously saved journey.
+
+	Dependency injection has been used rather than MVVM to keep the view controller concise. This view
+	controller is static and requires the same data everytime and thus is a perfect candidate for dependency
+	injection.
 */
 class ViewJourneyViewController: UIViewController {
 
@@ -38,7 +42,6 @@ class ViewJourneyViewController: UIViewController {
 		
 		loadMap()
 	}
-	
 	
 	/**
 	Load the map with the user's journey route.
