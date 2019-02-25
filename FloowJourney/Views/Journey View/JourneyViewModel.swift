@@ -47,7 +47,7 @@ class JourneyViewModel {
 	}
 	
 	/**
-	Format journey data and save to JourneyManager
+	Format the journey data and save to JourneyManager.
 	*/
 	private func saveJourney() {
 		

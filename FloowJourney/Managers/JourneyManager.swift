@@ -15,7 +15,7 @@ class JourneyManager {
 	
 	static let shared = JourneyManager()
 	
-	// Private init prevents reinitialisation of singleton
+	// Private init prevents reinitialisation of singleton.
 	private init(){}
 	
 	var journeys = [Journey]()

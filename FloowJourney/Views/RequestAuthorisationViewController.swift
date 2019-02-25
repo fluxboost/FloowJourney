@@ -31,8 +31,8 @@ class RequestAuthorisationViewController: UIViewController {
 	
 	/**
 	UIButton action that checks if the user has made a decision on location services.
-	If they haven't made a decision yet, it requests authorisation.
-	If they have denied access, it asks them to enable location services in the Settings app.
+		If they haven't made a decision yet, it requests authorisation.
+		If they have denied access, it asks them to enable location services in the Settings app.
 	*/
 	@IBAction func buttonRequestAuthPressed(_ sender: UIButton) {
 		(!userLocationManager.checkIfUserHasDecidedAuthorisation()) ? userLocationManager.requestAlwaysAuthorization() : showOpenSettingsAppAlert()

@@ -16,7 +16,7 @@ class UserLocationManager {
 	static let shared = UserLocationManager()
 	var locationManager = CLLocationManager()
 	
-	// Private init prevents reinitialisation of singleton
+	// Private init prevents reinitialisation of singleton.
 	private init () {
 		locationManager.activityType = .automotiveNavigation
 		locationManager.distanceFilter = 5

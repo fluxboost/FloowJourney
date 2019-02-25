@@ -18,7 +18,7 @@ class JourneysListViewModel {
 	}
 	
 	/**
-	Gets the journey array count
+	Gets the journey array count.
 	
 	- Returns: An Int with the count of the journeys array.
 	*/
@@ -29,7 +29,7 @@ class JourneysListViewModel {
 	/**
 	Gets the Journey object for the provided index path.
 	
-	- Returns: A Journey object
+	- Returns: A Journey object.
 	*/
 	func journeyForRowAtIndexPath(indexPath: IndexPath) -> Journey {
 		return journeys[indexPath.row]

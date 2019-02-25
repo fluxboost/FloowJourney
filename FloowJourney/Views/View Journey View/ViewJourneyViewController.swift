@@ -10,6 +10,9 @@ import UIKit
 import MapKit
 import CoreLocation
 
+/**
+ViewJourneyViewController displays the users previously saved journey. Dependency injection has been used rather than MVVM to keep the view controller concise. This view controller is static and requires the same data everytime and thus is a perfect candidate for dependency injection.
+*/
 class ViewJourneyViewController: UIViewController {
 
 	@IBOutlet weak var labelStartDate: UILabel!
@@ -58,6 +61,8 @@ class ViewJourneyViewController: UIViewController {
 	
 	/**
 	Calculates the map region that incapsulates all the journey points.
+	
+	- Returns: An MKCoordinateRegion object.
 	*/
 	private func mapRegion() -> MKCoordinateRegion? {
 		let locations = journey.locations
@@ -89,7 +94,7 @@ class ViewJourneyViewController: UIViewController {
 	/**
 	Creates a polyline that follows all the coordinates of the 'locations' in the Journey object.
 	
-	- Returns: A polyline object
+	- Returns: A polyline object.
 	*/
 	private func polyLine() -> MKPolyline {
 		let locations = journey.locations
