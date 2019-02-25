@@ -122,6 +122,11 @@ extension JourneyViewController: CLLocationManagerDelegate {
 
 extension JourneyViewController: MKMapViewDelegate {
 	
+	/**
+	When a map overlay is added, this function is called.
+	
+	- Returns: A MKOverlayRenderer object that draws a black polyline.
+	*/
 	func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
 		guard let polyline = overlay as? MKPolyline else {
 			return MKOverlayRenderer(overlay: overlay)
