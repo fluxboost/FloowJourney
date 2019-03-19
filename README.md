@@ -13,4 +13,12 @@ Project to learn how to track user location and gain more experience with MapKit
 5. Ability to view all your past journeys.
 6. Viewing an old journey will show route on a map.
 
+## Tech
+
+1. Swift
+2. MVVM
+3. Delegates/Protocols
+4. Singleton
+5. MapKit
+
 <image src="screenshot.PNG" width="375px" height="667px">
